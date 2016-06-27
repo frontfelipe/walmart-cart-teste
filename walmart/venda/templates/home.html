@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load humanize %}
+<html lang="en">
+<!--{% load staticfiles %}-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Todos os produtos - Walmart.com</title>
+
+    <!-- WalMart WebStyle -->
+    <link class="js-global-styles" rel="stylesheet" href="https://walmartlabs.github.io/web-style-guide/css/index.min.css">
+    <link rel="stylesheet" href="https://walmartlabs.github.io/web-style-guide/static/gen/css/icons.data.svg.css" media="all">
+    <script type="text/javascript" src="https://fonts.walmart.com/fqp0lia.js"></script>
+    <style type="text/css">.tk-myriad-pro{font-family:"myriad-pro",sans-serif;}</style>
+    <link rel="stylesheet" href="https://fonts.walmart.com/k/c/fqp0lia-l.css" media="all">
+  	<link rel="stylesheet" href="https://static.wmobjects.com.br/checkout/styles/7919a255.cart.css" media="all">
+  	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" media="all">
+  	<link rel="stylesheet" href="https://walmartlabs.github.io/web-style-guide/css/index.min.css" media="all">
+  </head>
+
+  <body class="responsive">
+    <div class="module fullwidth" style="background: #007dc6;">
+        <a href="{% url "produtos" %}"><img src="{% static "images/walmart.png" %}" alt="" width="" height="55px"></a>
+        <div class="arrange-fit header-meta-cell header-meta-cell-last">
+              <div class="header-cart" style="margin-left: 1270px;margin-top: -52px;position:absolute;">
+                <a href="{% url "carrinho" %}">
+                    <i class="wmicon wmicon-cart" style="color:white;"></i>
+                    <b class="js-header-cart-count header-cart-item-count">{% if carrinho.itemcarrinho_set.all == None %}0{% else %}{{ carrinho.itemcarrinho_set.all.count }}{% endif %}</b>
+                    <span class="visuallyhidden">Itens no carrinho</span>
+                </a>
+              </div>
+        </div>
+    </div>
+    <div class="container">
+      <h2>Produtos</h2><button class="btn btn-secondary" type="button" onclick="window.location.href='{% url "add-produto" %}'">Cadastrar novo Produto</button>
+      <div class="guide-example-section guide-example-section-default">
+        <ul class="tile-list">
+           {% for pr in produtos %}
+             <form method="post" action='{% url "add-carrinho" pk=pr.id %}'>
+                {% csrf_token %}
+                  <ul class="tile-list tile-list-grid">
+                    <li class="tile-grid-unit-wrapper">
+                      <div class="js-tile tile-grid-unit" data-item-id="16778638" data-seller-id="0">
+                        <div class="js-tile tile-grid-unit" data-item-id="16778638" data-seller-id="0">
+                          <a class="js-product-image" href="{{ pr.foto.url }}">
+                            <img class="product-image" alt="" data-default-image="{{ pr.foto.url }}odnHeight=180&amp;odnWidth=180" src="{{ pr.foto.url }}">
+                          </a>
+                          <div class="tile-price">
+                            <div class="js-item-price-container item-price-container" product-id-irodata="16778638" properties_item_class_id="1" properties_street_date_str="" store_only="false" savings="" grid_view="true" properties_walmart_canonical_url="/ip/Briggs-and-Stratton-Engine-Air-Filter/16778638" put="true" shippingmsg="over50FreeShipping" properties_mp_seller_name="Walmart.com" is_submap_pricing_enabled="" baseprice="5.66" dohideitemcontrols="true" preorderitem="false">
+                              <span class="price price-display">
+                                <span class="sup">R$</span>{{ pr.preco|intcomma }}<span class="currency-delimiter"></span>
+                              </span>
+                              <span class="price-auxblock">
+                              </span>
+                              <div class="price-savingblock">
+                              </div>
+                            </div>
+                          </div>
+                          <a class="js-product-title" href="">
+                              <h3 class="tile-heading">
+                                <div>{{ pr.descricao }}</div>
+                              </h3>
+                          </a>
+                          <div class="stars stars-small">
+                            <span href="#" class="js-reviews">
+                              <i class="star star-rated"></i><i class="star star-rated"></i><i class="star star-rated"></i><i class="star star-rated"></i><i class="star star-rated"></i><span class="visuallyhidden">5 stars</span>
+                              <span class="stars-reviews">(5)
+                                <span class="visuallyhidden"></span>
+                              </span>
+                            </span>
+                          </div>
+                          <div class="tile-details module">
+                            <ul class="block-list js-fulfillment-container fulfillment-container">
+                              <li class="js-shipping-pass-container" data-offer-shipping-pass-eligible="false">
+                              </li>
+                              <li><b>Frete Gratis</b></li>
+                            </ul>
+                          </div>
+                          <div class="tile-section tile-controls tile-controls-dotted">
+                            <button class="btn btn-link" type="submit"><i class="wmicon wmicon-add-to-cart"></i> Adicionar no Carrinho</button>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+              </form>
+            {% endfor %}
+            </ul>
+      </div>
+
+    </div>
+  </body>
+</html>

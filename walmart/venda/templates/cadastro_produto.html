@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load humanize %}
+{% load staticfiles %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Cadastro de produto - Walmart.com</title>
+
+    <!-- WalMart WebStyle -->
+    <link class="js-global-styles" rel="stylesheet" href="https://walmartlabs.github.io/web-style-guide/css/index.min.css">
+    <link rel="stylesheet" href="https://walmartlabs.github.io/web-style-guide/static/gen/css/icons.data.svg.css" media="all">
+    <script type="text/javascript" src="https://fonts.walmart.com/fqp0lia.js"></script>
+    <style type="text/css">.tk-myriad-pro{font-family:"myriad-pro",sans-serif;}</style>
+    <link rel="stylesheet" href="https://fonts.walmart.com/k/c/fqp0lia-l.css" media="all">
+  </head>
+
+  <body class="responsive">
+    <div class="module fullwidth" style="background: #007dc6;">
+        <a href="{% url "produtos" %}"><img src="{% static "images/walmart.png" %}" alt="" width="" height="55px"></a>
+        <div class="arrange-fit header-meta-cell header-meta-cell-last">
+              <div class="header-cart" style="margin-left: 1270px;margin-top: -52px;position:absolute;">
+                <a href="{% url "carrinho" %}">
+                    <i class="wmicon wmicon-cart" style="color:white;"></i>
+                    <b class="js-header-cart-count header-cart-item-count">{% if carrinho.itemcarrinho_set.all == None %}0{% else %}{{ carrinho.itemcarrinho_set.all.count }}{% endif %}</b>
+                    <span class="visuallyhidden">Itens no carrinho</span>
+                </a>
+              </div>
+        </div>
+    </div>
+    <div class="container">
+      <h1>Cadastro de produto</h1>
+      <h5 style="color:#f42121;">{{ msg }}</h5>
+	  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+		  <label class="form-label">
+  			  <div class="validation-group">
+            {{ form }}
+  			  </div>
+		  </label>
+      <div class="container">
+        	<div class="module">
+        	  <button class="btn btn-secondary" type="submit">Cadastrar</button>
+        	</div>
+      </div>
+	   </form>
+    </div>
+  </body>
+</html>
