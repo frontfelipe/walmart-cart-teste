@@ -19,7 +19,7 @@ Após os cálculos, exibir na tela de Conclusão de Compra o valor final da comp
  - Django 1.8
  -- Utilizei Django porque é o framework que tenho mais dominio e isso iria me ajudar a produzir com mais rapidez o teste. 
 
- Design das telas/Layout
+#Design/Layout
  - Walmart web-style-guide https://walmartlabs.github.io/web-style-guide/
  -- Apos uma rapida pesquisa no google eu encontrei este guia de estilos do proprio Walmart EUA e vi que ficaria mais fiel ao layout do walmart Brasil se eu utilizasse.
  
