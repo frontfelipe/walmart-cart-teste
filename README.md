@@ -1,7 +1,7 @@
 # Teste Walmart - Vaga FullStack Python/Django
 Teste para o processo seletivo FullStack Walmart
 
-#Requisitos mínimos para a aplicação:
+#Requisitos mínimos do Teste:
  - Usuário pode criar mais de um produto com o Nome e Valor como requisitos mínimos.
  - Aplicação deve exibir todos os produtos cadastrados e permitir que o usuário altere a quantidade de cada produto que deseja comprar na tela de Carrinho.
  - A compra mínima (soma de todos os valores e quantidades dos produtos) deve ser de 200 reais, impossibilitando a ida para a tela de Conclusão de Compra no caso de valores menores.
@@ -25,10 +25,11 @@ Após os cálculos, exibir na tela de Conclusão de Compra o valor final da comp
 Django==1.8.4
 
 
-#Setup BD
-Neste teste foi utilizado SQLITE3
+#Setup
+- Banco
+SQLITE3
 
-#Initial Data
+-Initial Data
 Foi criado uma fixture com dados iniciais e tambem algumas imagens de produtos pre cadastrados
 
          python manage.py loaddata /venda/fixtures/initial_data.json
