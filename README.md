@@ -15,8 +15,10 @@ Após os cálculos, exibir na tela de Conclusão de Compra o valor final da comp
 #Tecnologias Utilizadas
  - Python 3
  -- Utilizei python 3 porque ainda eu nao tinha utilizado e um projeto, sendo assim aproveitei o teste para ver o que tinha de novo em relacao ao python 2.7.
+
  - Django 1.8
  -- Utilizei Django porque é o framework que tenho mais dominio e isso iria me ajudar a produzir com mais rapidez o teste. 
+
  Design das telas/Layout
  - Walmart web-style-guide https://walmartlabs.github.io/web-style-guide/
  -- Apos uma rapida pesquisa no google eu encontrei este guia de estilos do proprio Walmart EUA e vi que ficaria mais fiel ao layout do walmart Brasil se eu utilizasse.
@@ -24,19 +26,16 @@ Após os cálculos, exibir na tela de Conclusão de Compra o valor final da comp
 #Requirements
 Django==1.8.4
 
-
 #Setup
-- Banco
-SQLITE3
+- Banco: SQLITE3
 
--Initial Data
-Foi criado uma fixture com dados iniciais e tambem algumas imagens de produtos pre cadastrados
+- Initial Data
+Foi criado uma fixture com os dados iniciais e tambem algumas imagens de produtos pre cadastrados (media/produtos)
 
          python manage.py loaddata /venda/fixtures/initial_data.json
-         
-		 python manage.py makemigrations
+         python manage.py makemigrations
          python manage.py migrate
-		 python manage.py runserver
+         python manage.py runserver
 
 #Observacoes
 Tive 7 dias para produzir este teste e infelizmente por causa de um problema de saude que tive essa semana (pneumonia) acabei perdendo tempo para produzir,
