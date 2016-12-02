@@ -36,9 +36,3 @@ Foi criado uma fixture com os dados iniciais e tambem algumas imagens de produto
          python manage.py makemigrations
          python manage.py migrate
          python manage.py runserver
-
-#Observações
-- Queria ter feito esquema de login e cadastro de usuario mais caprichado porem nao deu tempo.
-- Tive 7 dias para produzir este teste e infelizmente por causa de um problema de saude que tive essa semana (pneumonia) acabei perdendo tempo para produzir, sendo assim peço desculpas por eventuais erros no projeto...
-
-
